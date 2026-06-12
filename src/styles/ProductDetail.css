@@ -1,0 +1,95 @@
+/* ProductDetail.css - Styles for the single product detail page */
+
+.product-detail { max-width: 1000px; margin: 0 auto; }
+
+/* Back button at the top of the page */
+.back-btn {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-size: .9rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+}
+.back-btn:hover { text-decoration: underline; }
+
+/* Two column layout — image on left, info on right */
+.detail-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+}
+
+/* ── Image gallery ── */
+.detail-gallery { display: flex; flex-direction: column; gap: .75rem; }
+
+/* Main large image */
+.detail-main-image {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+/* Row of small thumbnail images below main image */
+.thumbnail-strip { display: flex; gap: .5rem; flex-wrap: wrap; }
+
+.thumb {
+  width: 64px; height: 64px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color var(--transition);
+}
+
+/* Active and hovered thumbnails get orange border */
+.thumb.active,
+.thumb:hover { border-color: var(--color-primary); }
+
+/* ── Product information ── */
+.detail-info  { display: flex; flex-direction: column; gap: .75rem; }
+.detail-title { font-size: 1.6rem; font-weight: 800; line-height: 1.2; }
+.detail-brand { color: var(--color-text-muted); font-size: .9rem; }
+
+.detail-rating      { color: #f6ad55; font-size: 1rem; }
+.detail-rating span { color: var(--color-text-muted); font-size: .85rem; }
+
+.detail-description {
+  color: var(--color-text-muted);
+  font-size: .95rem;
+  line-height: 1.65;
+}
+
+/* Stock and discount shown side by side */
+.detail-meta    { display: flex; gap: 1rem; align-items: center; font-size: .85rem; }
+.detail-stock   { color: var(--color-success); font-weight: 600; }
+.detail-discount{ color: var(--color-primary); font-weight: 600; }
+
+/* Price and button on the same row */
+.detail-price-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: .5rem;
+}
+.detail-price {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+/* ── Responsive — stack vertically on small screens ── */
+@media (max-width: 680px) {
+  .detail-layout     { grid-template-columns: 1fr; }
+  .detail-main-image { height: 260px; }
+}
