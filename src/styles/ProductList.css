@@ -1,0 +1,24 @@
+/* ProductList.css - Styles for the product grid page */
+
+.product-list-section { padding-top: .5rem; }
+
+/* Shows how many results were found when searching */
+.search-results-info {
+  color: var(--color-text-muted);
+  font-size: .9rem;
+  margin-bottom: 1.25rem;
+}
+
+/* CSS Grid layout for the product cards */
+/* auto-fill creates as many columns as fit in the available width */
+/* minmax(220px, 1fr) means each column is at least 220px wide */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+/* On very small screens show 2 columns instead of auto */
+@media (max-width: 480px) {
+  .product-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+}
