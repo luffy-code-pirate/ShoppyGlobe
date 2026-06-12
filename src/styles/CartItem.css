@@ -1,0 +1,101 @@
+/* CartItem.css - Styles for a single cart item row */
+
+/* Each cart item is a horizontal row with all elements side by side */
+.cart-item {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Product thumbnail — fixed size square */
+.cart-item-image {
+  width: 80px; height: 80px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;   /* prevents image from shrinking */
+}
+
+/* Title and price stacked vertically */
+/* flex: 1 makes it take up all remaining space */
+.cart-item-details { flex: 1; min-width: 0; }
+
+/* min-width: 0 allows text to truncate properly */
+.cart-item-title {
+  font-size: .95rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;  /* shows ... when title is too long */
+}
+.cart-item-price {
+  font-size: .82rem;
+  color: var(--color-text-muted);
+}
+
+/* Quantity controls — minus, number, plus in a row */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  flex-shrink: 0;
+}
+
+/* Round buttons for + and - */
+.qty-btn {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-border);
+  background: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--transition), color var(--transition);
+}
+
+/* Highlight button on hover */
+.qty-btn:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* Disabled state when quantity is 1 — cannot go lower */
+.qty-btn:disabled { opacity: .35; cursor: not-allowed; }
+
+.qty-value {
+  font-weight: 700;
+  min-width: 1.5rem;
+  text-align: center;
+}
+
+/* Subtotal for this item */
+.cart-item-subtotal {
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+  min-width: 60px;
+  text-align: right;
+}
+
+/* Trash icon button to remove item */
+.remove-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: .5;
+  transition: opacity var(--transition);
+  flex-shrink: 0;
+}
+.remove-btn:hover { opacity: 1; }
+
+/* On very small screens wrap the content */
+@media (max-width: 520px) {
+  .cart-item       { flex-wrap: wrap; }
+  .cart-item-image { width: 60px; height: 60px; }
+}
