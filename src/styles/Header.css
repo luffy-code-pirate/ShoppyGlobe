@@ -1,0 +1,103 @@
+/* Header.css - Styles for the navigation bar */
+
+/* sticky means the header stays at the top when you scroll */
+/* z-index 100 makes sure it appears above all other content */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-navy);
+  box-shadow: 0 2px 8px rgba(0,0,0,.25);
+}
+
+/* Inner wrapper centers content and spaces items apart */
+.header-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: .85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* ── Logo ── */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  flex-shrink: 0;   /* prevents logo from shrinking on small screens */
+}
+.logo-globe { font-size: 1.5rem; }
+.logo-text  {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -.02em;
+}
+
+/* ── Search bar ── */
+/* flex: 1 makes it grow to fill available space */
+.search-wrap {
+  flex: 1;
+  position: relative;
+  max-width: 480px;
+}
+.search-input {
+  width: 100%;
+  padding: .55rem 2.5rem .55rem 1rem;
+  border-radius: var(--radius-lg);
+  border: none;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  font-size: .9rem;
+  outline: none;
+  transition: background var(--transition);
+}
+.search-input::placeholder { color: rgba(255,255,255,.5); }
+.search-input:focus        { background: rgba(255,255,255,.2); }
+
+/* Search icon positioned inside the input on the right */
+.search-icon {
+  position: absolute;
+  right: .9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: .9rem;
+  pointer-events: none;   /* makes sure clicking icon focuses the input */
+}
+
+/* ── Navigation ── */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-left: auto;
+}
+.nav-link       { color: rgba(255,255,255,.8); font-weight: 500; transition: color var(--transition); }
+.nav-link:hover { color: var(--color-primary); }
+
+/* Cart icon with badge */
+.cart-link { position: relative; display: flex; align-items: center; }
+.cart-icon { font-size: 1.4rem; }
+
+/* Badge is the orange circle showing item count */
+.cart-badge {
+  position: absolute;
+  top: -7px; right: -10px;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: .65rem;
+  font-weight: 700;
+  min-width: 18px; height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+}
+
+/* ── Responsive — smaller screens ── */
+@media (max-width: 640px) {
+  .search-wrap { max-width: 160px; }
+  .logo-text   { display: none; }   /* hide text logo on mobile, keep icon */
+}
