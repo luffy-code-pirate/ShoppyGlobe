@@ -1,16 +1,82 @@
-# React + Vite
+# ShoppyGlobe 🛍️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A feature-rich e-commerce application built with React + Vite.
 
-Currently, two official plugins are available:
+**GitHub Repository:** https://github.com/luffy-code-pirate/ShoppyGlobe
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React 18** with functional components and hooks
+- **Vite** — fast build tooling
+- **Redux Toolkit** — cart state + search filter
+- **React Router v6** — `createBrowserRouter` with dynamic routes
+- **PropTypes** — prop validation
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Features
+
+| Feature | Details |
+|---|---|
+| Product listing | Fetched from `dummyjson.com/products` via custom hook |
+| Product detail | Dynamic route `/product/:id` |
+| Shopping cart | Add / remove / adjust quantity (min 1) |
+| Search | Redux-powered real-time filter |
+| Checkout | Dummy form → order confirmation → redirect |
+| 404 page | Custom NotFound with URL display |
+| Lazy loading | `React.lazy` + `Suspense` on all pages; `loading="lazy"` on all images |
+| Responsive | Works on mobile, tablet, and desktop |
+| Error handling | Graceful fallback UI on API failures |
+
+---
+
+## Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+---
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── Header.jsx          # Nav + search + cart badge
+│   ├── ProductList.jsx     # Product grid (filtered by Redux search)
+│   ├── ProductItem.jsx     # Single product card
+│   ├── ProductDetail.jsx   # Full product page (dynamic route)
+│   ├── Cart.jsx            # Cart page with summary
+│   ├── CartItem.jsx        # Single cart row with qty controls
+│   ├── Checkout.jsx        # Form + order placement
+│   ├── NotFound.jsx        # 404 page
+│   └── LoadingSpinner.jsx  # Suspense fallback
+├── hooks/
+│   └── useFetchProducts.js # Custom hook for product fetching
+├── redux/
+│   ├── store.js            # Redux store config
+│   ├── cartSlice.js        # Cart actions + reducers + selectors
+│   └── searchSlice.js      # Search query state
+├── styles/                 # Component-scoped CSS files
+├── App.jsx                 # Router setup with createBrowserRouter
+└── main.jsx                # Entry point with Redux Provider
+```
+
+---
+
+## Notes
+
+- `node_modules` has been excluded from submission
+- All components use lazy loading via `React.lazy`
+- Quantity cannot go below 1 in the cart
+- Placing an order clears the cart and redirects to Home after 3 seconds
