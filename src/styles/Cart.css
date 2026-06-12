@@ -1,0 +1,87 @@
+/* Cart.css - Styles for the shopping cart page */
+
+.cart-page     { max-width: 960px; margin: 0 auto; }
+.cart-title    { font-size: 1.8rem; font-weight: 800; }
+.cart-subtitle { color: var(--color-text-muted); margin-bottom: 1.5rem; }
+
+/* Two column layout — items list on left, summary panel on right */
+.cart-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Items list — vertical stack with gap between each item */
+.cart-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ── Order summary panel ── */
+.cart-summary {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: .85rem;
+
+  /* Stays visible as user scrolls the items list */
+  position: sticky;
+  top: 80px;
+}
+.cart-summary h2 { font-size: 1.1rem; font-weight: 700; }
+
+/* Each row in the summary has label on left and value on right */
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: .95rem;
+}
+
+/* Free shipping label in green */
+.free-tag { color: var(--color-success); font-weight: 600; }
+
+/* Total row is bigger and has a line above it */
+.total-row {
+  font-weight: 700;
+  font-size: 1.05rem;
+  border-top: 1px solid var(--color-border);
+  padding-top: .75rem;
+}
+
+/* Checkout button spans full width of the summary panel */
+.btn-checkout { width: 100%; padding: .8rem; font-size: 1rem; }
+
+/* Continue shopping link centered below the button */
+.continue-link {
+  text-align: center;
+  color: var(--color-primary);
+  font-size: .85rem;
+  font-weight: 600;
+}
+.continue-link:hover { text-decoration: underline; }
+
+/* ── Empty cart state ── */
+.cart-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  min-height: 50vh;
+  text-align: center;
+}
+.cart-empty-icon { font-size: 5rem; }
+.cart-empty h2   { font-size: 1.5rem; }
+.cart-empty p    { color: var(--color-text-muted); }
+
+/* ── Responsive — stack vertically on small screens ── */
+@media (max-width: 700px) {
+  .cart-layout  { grid-template-columns: 1fr; }
+  .cart-summary { position: static; }
+}
