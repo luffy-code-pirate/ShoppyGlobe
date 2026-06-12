@@ -71,6 +71,65 @@ src/
 ├── App.jsx                 # Router setup with createBrowserRouter
 └── main.jsx                # Entry point with Redux Provider
 ```
+### Build for Production
+
+```bash
+npm run build
+npm run preview
+```
+
+---
+
+## 📋 Project Requirements Checklist
+
+### Component Structure
+- [x] App — main component with routing
+- [x] Header — navigation with search and cart badge
+- [x] ProductList — product grid with search filter
+- [x] ProductItem — single product card with Add to Cart
+- [x] ProductDetail — full product page with dynamic route
+- [x] Cart — cart page with modify and remove options
+- [x] CartItem — single cart row with quantity controls
+- [x] NotFound — 404 page with error details and attempted URL
+- [x] Checkout — form with order summary and Place Order button
+
+### Props
+- [x] Props used to pass data from parent to child components
+- [x] PropTypes validation on ProductItem and CartItem
+
+### Data Fetching
+- [x] Custom hook useFetchProducts with useEffect for ProductList
+- [x] useEffect in ProductDetail to fetch by route parameter
+- [x] Error handling UI for failed API requests in both components
+
+### State Management
+- [x] Redux Toolkit with cartSlice and searchSlice
+- [x] Actions, reducers and selectors for cart management
+- [x] Search feature implemented using Redux state
+
+### Event Handling
+- [x] Add to Cart button in ProductItem
+- [x] Remove button in CartItem
+- [x] Quantity adjustment with minimum of 1 enforced
+- [x] All cart operations implemented through Redux
+
+### React Routing
+- [x] createBrowserRouter used for routing
+- [x] Routes for Home, Product Detail, Cart and Checkout
+- [x] Dynamic route parameter used for product detail
+
+### React Lists
+- [x] Unique key on every product in ProductList
+- [x] Unique key on every item in Cart and Checkout
+
+### Performance
+- [x] React.lazy and Suspense on all page components
+- [x] loading="lazy" on all images throughout the app
+
+### Styling
+- [x] CSS applied to all components
+- [x] Responsive design for mobile, tablet and desktop
+
 
 ---
 
@@ -80,3 +139,11 @@ src/
 - All components use lazy loading via `React.lazy`
 - Quantity cannot go below 1 in the cart
 - Placing an order clears the cart and redirects to Home after 3 seconds
+
+
+---
+
+## 👤 Author
+
+**Prahlad Jha**
+GitHub — https://github.com/luffy-code-pirate
