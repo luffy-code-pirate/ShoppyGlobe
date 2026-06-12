@@ -52,7 +52,7 @@ export default function Header() {
 
         {/* Logo — clicking it goes back to home page */}
         <Link to="/" className="logo">
-          <span className="logo-globe">🛍</span>
+          <span className="logo-globe">🛍️</span>
           <span className="logo-text">ShoppyGlobe</span>
         </Link>
 
