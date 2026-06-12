@@ -1,0 +1,15 @@
+/* LoadingSpinner.css - Styles for the loading spinner component */
+
+/* Centers the spinner vertically and horizontally on the page */
+.suspense-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh;
+  gap: 1rem;
+  color: var(--color-text-muted);
+}
+
+/* The spinner itself is already defined in index.css as .spinner */
+/* That class handles the animation, size, and border */
